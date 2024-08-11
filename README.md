@@ -25,36 +25,36 @@ Aplikasi ini di-develop menggunakan beberapa teknologi berikut:
 
 ## Project Features:
 
--   Login (Admin & User)
--   Register (Admin & User)
--   Logout
--   Add Book (Admin & User)
-    -   Upload Book Cover (image)
-    -   Upload Book File (pdf)
--   Edit Book (Admin & User)
--   Delete Book (Admin & User)
--   View Book (Admin & User)
--   Search Book (Admin & User)
--   Pagination
--   Upload Book Cover (image)
--   Upload Book File (pdf)
+- Login (Admin & User)
+- Register (Admin & User)
+- Logout
+- Add Book (Admin & User)
+  - Upload Book Cover (image)
+  - Upload Book File (pdf)
+- Edit Book (Admin & User)
+- Delete Book (Admin & User)
+- View Book (Admin & User)
+- Search Book (Admin & User)
+- Pagination
+- Upload Book Cover (image)
+- Upload Book File (pdf)
 
 ## Project Scope:
 
--   Admin
+- Admin
 
-    -   Login
-    -   Add Book
-    -   Edit Book
-    -   Delete Book
-    -   View Book
-    -   Search Book
+  - Login
+  - Add Book
+  - Edit Book
+  - Delete Book
+  - View Book
+  - Search Book
 
--   User
-    -   Login
-    -   Register
-    -   Add Book
-    -   Edit Book
-    -   Delete Book
-    -   View Book
-    -   Search Book
+- User
+  - Login
+  - Register
+  - Add Book
+  - Edit Book
+  - Delete Book
+  - View Book
+  - Search Book
