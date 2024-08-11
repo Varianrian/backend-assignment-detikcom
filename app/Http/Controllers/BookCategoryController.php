@@ -28,12 +28,16 @@ class BookCategoryController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect()->route('book-categories.index');
+        return redirect()->route('book-categories.index')->with([
+            'status' => 'success',
+            'message' => 'Book category has been created successfully.'
+        ]);
     }
 
     public function edit(BookCategory $id)
     {
-        return view('pages.book-categories.edit', compact('id'));
+        $category = $id;
+        return view('pages.book-categories.edit', compact('category'));
     }
 
     public function update(Request $request, $id)
@@ -46,7 +50,10 @@ class BookCategoryController extends Controller
         $bookCategory->name = $request->name;
         $bookCategory->save();
 
-        return redirect()->route('book-categories.index');
+        return redirect()->route('book-categories.index')->with([
+            'status' => 'success',
+            'message' => 'Book category has been updated successfully.'
+        ]);
     }
 
     public function delete($id)
@@ -54,6 +61,9 @@ class BookCategoryController extends Controller
         $bookCategory = BookCategory::findOrFail($id);
         $bookCategory->delete();
 
-        return redirect()->route('book-categories.index');
+        return redirect()->route('book-categories.index')->with([
+            'status' => 'success',
+            'message' => 'Book category has been deleted successfully.'
+        ]);
     }
 }

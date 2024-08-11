@@ -5,7 +5,7 @@
     <div class="flex flex-col items-start justify-between gap-3 lg:flex-row lg:items-center">
       {{-- Button Create Book --}}
       <a
-        href=""
+        href="{{ route("book-categories.create") }}"
         class="inline-block rounded border border-indigo-500 px-4 py-2 text-sm leading-none text-indigo-500 hover:border-transparent hover:bg-indigo-500 hover:text-white"
       >
         Create Book Category
@@ -43,6 +43,21 @@
       </div>
     </div>
 
+    {{-- Notifications --}}
+    @if (session("status"))
+      @if (session("status") === "success")
+        <div class="relative rounded border border-emerald-400 bg-emerald-500 px-4 py-3 text-emerald-100">
+          <strong class="font-bold">Success!</strong>
+          <span class="block sm:inline">{{ session("message") }}</span>
+        </div>
+      @elseif (session("status") === "error")
+        <div class="relative rounded border border-red-400 bg-red-500 px-4 py-3 text-red-100">
+          <strong class="font-bold">Error!</strong>
+          <span class="block sm:inline">{{ session("message") }}</span>
+        </div>
+      @endif
+    @endif
+
     {{-- Table --}}
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -54,19 +69,6 @@
           </tr>
         </thead>
         <tbody>
-          {{--
-            <tr class="border-b bg-white hover:bg-gray-50">
-            <td class="px-6 py-4">Novel</td>
-            <td class="flex h-full flex-row items-start gap-2 px-6 py-4">
-            <a href="#" class="rounded-lg border border-blue-600 px-2 py-1 font-medium text-blue-600 hover:underline">
-            Edit
-            </a>
-            <a href="#" class="rounded-lg border border-red-600 px-2 py-1 font-medium text-red-600 hover:underline">
-            Delete
-            </a>
-            </td>
-            </tr>
-          --}}
           @if ($categories->count() > 0)
             @foreach ($categories as $category)
               <tr class="border-b bg-white hover:bg-gray-50">
