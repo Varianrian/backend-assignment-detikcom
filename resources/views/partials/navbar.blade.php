@@ -1,33 +1,48 @@
 {{-- Navbar --}}
-<nav class="flex items-center justify-between flex-wrap bg-teal-500 py-4 px-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <span class="font-semibold text-xl tracking-tight">{{ config("app.name", "Laravel") }}</span>
+<nav class="flex flex-wrap items-center justify-between bg-teal-500 px-6 py-4">
+  <div class="mr-6 flex flex-shrink-0 items-center text-white">
+    <span class="text-xl font-semibold tracking-tight">{{ config("app.name", "Laravel") }}</span>
+  </div>
+  <div class="block lg:hidden">
+    <button
+      id="nav-toggle"
+      class="flex items-center rounded border border-teal-400 px-3 py-2 text-teal-200 hover:border-white hover:text-white"
+    >
+      <svg class="h-3 w-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+      </svg>
+    </button>
+  </div>
+  <div class="block hidden w-full flex-grow lg:flex lg:w-auto lg:items-center" id="nav-content">
+    <div class="text-sm lg:flex-grow">
+      <a href="" class="mr-4 mt-4 block text-teal-200 hover:text-white lg:mt-0 lg:inline-block">Home</a>
+      <a href="" class="mr-4 mt-4 block text-teal-200 hover:text-white lg:mt-0 lg:inline-block">Book</a>
     </div>
-    <div class="block lg:hidden">
-        <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <title>Menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-            </svg>
-        </button>
+    @auth
+      <div>
+        <a
+          href="{{ route("logout") }}"
+          class="mt-4 inline-block rounded border border-white px-4 py-2 text-sm leading-none text-white hover:border-transparent hover:bg-white hover:text-teal-500 lg:mt-0"
+        >
+          Logout
+        </a>
+      </div>
+    @else
+    <div>
+      <a
+        href="{{ route("login") }}"
+        class="mt-4 inline-block rounded border border-white px-4 py-2 text-sm leading-none text-white hover:border-transparent hover:bg-white hover:text-teal-500 lg:mt-0"
+      >
+        Login
+      </a>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden" id="nav-content">
-        <div class="text-sm lg:flex-grow">
-            <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                Home
-            </a>
-            <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                Book
-            </a>
-        </div>
-        <div>
-            <a href="" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</a>
-        </div>
-    </div>
+    @endauth
+  </div>
 
-    <script>
-        document.getElementById("nav-toggle").addEventListener("click", function() {
-            document.getElementById("nav-content").classList.toggle("hidden");
-        });
-    </script>
+  <script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      document.getElementById('nav-content').classList.toggle('hidden');
+    });
+  </script>
 </nav>
