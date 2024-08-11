@@ -124,4 +124,35 @@ class BookController extends Controller
             "message" => "Book has been deleted successfully."
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $query = Book::query()->where("title", "like", "%" . $request->name . "%")->orWhere("description", "like", "%" . $request->name . "%");
+        if (auth()->user()->role != "admin") {
+            $query->where("user_id", auth()->user()->id);
+        }
+        $books = $query->get();
+        $categories = BookCategory::all();
+        return view("pages.books.list")->with([
+            "books" => $books,
+            "categories" => $categories
+        ]);
+    }
+
+    public function filter(Request $request)
+    {
+        $query = Book::query();
+        if ($request->has("category")) {
+            $query->where("book_category_id", $request->category);
+        }
+        if (auth()->user()->role != "admin") {
+            $query->where("user_id", auth()->user()->id);
+        }
+        $books = $query->get();
+        $categories = BookCategory::all();
+        return view("pages.books.list")->with([
+            "books" => $books,
+            "categories" => $categories
+        ]);
+    }
 }

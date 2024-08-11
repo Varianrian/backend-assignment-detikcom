@@ -14,28 +14,40 @@
       {{-- Category Filter --}}
 
       <div class="relative">
-        <select
-          class="block rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-          required
-        >
-          <option value="" disabled selected>Filter by Category</option>
-          @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-          @endforeach
-        </select>
+        <form class="mx-auto flex max-w-sm items-center" action="{{ route("books.filter") }}" method="GET">
+          <label for="category-filter" class="sr-only">Filter by Category</label>
+          <select
+            name="category"
+            id="category-filter"
+            class="block rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+            required
+          >
+            <option value="" disabled selected>Filter by Category</option>
+            @foreach ($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+          </select>
+          <button
+            type="submit"
+            class="ms-2 rounded-lg border border-blue-700 bg-blue-700 p-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          >
+            Filter
+          </button>
+        </form>
       </div>
 
       {{-- Search --}}
       <div class="relative">
-        <form class="mx-auto flex max-w-sm items-center">
+        <form class="mx-auto flex max-w-sm items-center" action="{{ route("books.search") }}" method="GET">
           <label for="simple-search" class="sr-only">Search</label>
           <div class="relative w-full">
             <input
               type="text"
+              name="name"
               id="simple-search"
               class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Search book name..."
-              required
+              placeholder="Search book title..."
+              value="{{ Request::has("name") ? Request::get("name") : "" }}"
             />
           </div>
           <button
