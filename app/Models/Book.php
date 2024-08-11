@@ -16,7 +16,8 @@ class Book extends Model
         "quantity",
         "book_category_id",
         "book_cover_image",
-        "book_file"
+        "book_file",
+        'user_id'
     ];
 
     protected $casts = [

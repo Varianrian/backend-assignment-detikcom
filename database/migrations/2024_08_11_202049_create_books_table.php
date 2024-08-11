@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('book_cover_image');
             $table->string('book_file');
             $table->foreignId('book_category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

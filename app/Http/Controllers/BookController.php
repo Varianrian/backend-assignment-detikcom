@@ -11,7 +11,11 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::with("category")->get();
+        if (auth()->user()->role == "admin") {
+            $books = Book::with("category")->get();
+        } else {
+            $books = Book::with("category")->where('user_id', auth()->user()->id)->get();
+        }
         $categories = BookCategory::all();
         return view("pages.books.list")->with([
             "books" => $books,
@@ -44,6 +48,7 @@ class BookController extends Controller
         $book->book_category_id = $request->book_category_id;
         $book->book_cover_image = $request->file("book_cover_image")->store("book-covers");
         $book->book_file = $request->file("book_file")->store("books");
+        $book->user_id = auth()->user()->id;
         $book->save();
 
         return redirect()->route("books.index")->with([
@@ -55,6 +60,13 @@ class BookController extends Controller
     public function edit(Book $id)
     {
         $book = $id;
+        if (auth()->user()->role != "admin" && $book->user_id != auth()->user()->id) {
+            return redirect()->route("books.index")->with([
+                "status" => "error",
+                "message" => "You are not authorized to edit this book."
+            ]);
+        }
+
         $categories = BookCategory::all();
 
         return view("pages.books.edit", compact("book", "categories"));
@@ -72,6 +84,12 @@ class BookController extends Controller
         ]);
 
         $book = Book::findOrFail($id);
+        if (auth()->user()->role != "admin" && $book->user_id != auth()->user()->id) {
+            return redirect()->route("books.index")->with([
+                "status" => "error",
+                "message" => "You are not authorized to edit this book."
+            ]);
+        }
         $book->title = $request->title;
         $book->description = $request->description;
         $book->quantity = $request->quantity;
@@ -93,6 +111,12 @@ class BookController extends Controller
     public function delete(Book $id)
     {
         $book = $id;
+        if (auth()->user()->role != "admin" && $book->user_id != auth()->user()->id) {
+            return redirect()->route("books.index")->with([
+                "status" => "error",
+                "message" => "You are not authorized to edit this book."
+            ]);
+        }
         $book->delete();
 
         return redirect()->route("books.index")->with([

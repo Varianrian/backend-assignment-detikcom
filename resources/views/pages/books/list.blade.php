@@ -57,6 +57,21 @@
       </div>
     </div>
 
+    {{-- Notifications --}}
+    @if (session("status"))
+      @if (session("status") === "success")
+        <div class="relative rounded border border-emerald-400 bg-emerald-500 px-4 py-3 text-emerald-100">
+          <strong class="font-bold">Success!</strong>
+          <span class="block sm:inline">{{ session("message") }}</span>
+        </div>
+      @elseif (session("status") === "error")
+        <div class="relative rounded border border-red-400 bg-red-500 px-4 py-3 text-red-100">
+          <strong class="font-bold">Error!</strong>
+          <span class="block sm:inline">{{ session("message") }}</span>
+        </div>
+      @endif
+    @endif
+
     {{-- Table --}}
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

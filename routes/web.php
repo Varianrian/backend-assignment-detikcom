@@ -16,11 +16,9 @@ use App\Http\Controllers\BookController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.dashboard');
-})->name('home')->middleware('auth');
+Route::redirect('/', '/books')->name('home');
 
-Route::group(['prefix' => 'books'], function () {
+Route::group(['prefix' => 'books', 'middleware' => 'auth'], function () {
     Route::get('/', [BookController::class, 'index'])->name('books.index');
     Route::get('create', [BookController::class, 'create'])->name('books.create');
     Route::post('store', [BookController::class, 'store'])->name('books.store');
@@ -29,7 +27,7 @@ Route::group(['prefix' => 'books'], function () {
     Route::get('delete/{id}', [BookController::class, 'delete'])->name('books.delete');
 });
 
-Route::group(['prefix' => 'book-categories'], function () {
+Route::group(['prefix' => 'book-categories', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [BookCategoryController::class, 'index'])->name('book-categories.index');
     Route::get('create', [BookCategoryController::class, 'create'])->name('book-categories.create');
     Route::post('store', [BookCategoryController::class, 'store'])->name('book-categories.store');
