@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,22 @@ Route::get('/', function () {
     return view('pages.dashboard');
 })->name('home')->middleware('auth');
 
-Route::group(['prefix'=> 'books'], function () {
+Route::group(['prefix' => 'books'], function () {
     Route::get('/', [BookController::class, 'index'])->name('books.index');
     Route::get('create', [BookController::class, 'create'])->name('books.create');
     Route::post('store', [BookController::class, 'store'])->name('books.store');
     Route::get('edit/{id}', [BookController::class, 'edit'])->name('books.edit');
     Route::post('update/{id}', [BookController::class, 'update'])->name('books.update');
     Route::get('delete/{id}', [BookController::class, 'delete'])->name('books.delete');
+});
+
+Route::group(['prefix' => 'book-categories'], function () {
+    Route::get('/', [BookCategoryController::class, 'index'])->name('book-categories.index');
+    Route::get('create', [BookCategoryController::class, 'create'])->name('book-categories.create');
+    Route::post('store', [BookCategoryController::class, 'store'])->name('book-categories.store');
+    Route::get('edit/{id}', [BookCategoryController::class, 'edit'])->name('book-categories.edit');
+    Route::post('update/{id}', [BookCategoryController::class, 'update'])->name('book-categories.update');
+    Route::get('delete/{id}', [BookCategoryController::class, 'delete'])->name('book-categories.delete');
 });
 
 Route::group(['prefix' => 'auth'], function () {
