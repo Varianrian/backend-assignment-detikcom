@@ -1,68 +1,60 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Digital Perpustakaan berbasis Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Description:
 
-## About Laravel
+Aplikasi ini merupakan aplikasi CMS (Content Management System) yang berfungsi sebagai perpustakaan digital. Aplikasi ini memungkinkan pengguna untuk menambahkan, mengedit, dan menghapus buku. Hak akses pengguna dibagi menjadi dua, yaitu admin dan user. User dapat melihat menambahkan, mengedit, dan menghapus buku yang ditambahkan user sendiri. Sedangkan admin dapat melihat, menambahkan, mengedit, dan menghapus buku yang ditambahkan oleh semua user.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<strong>Aplikasi ini dibangun menggunakan framework Laravel 10 dan MySQL sebagai database. Aplikasi yang dibuat tidak akan menggunakan template dari luar, melainkan dibuat dari awal dan tidak menggunakan library atau package yang tidak diperlukan seperti `filament`, `jetstream`, `livewire`, dsb.</strong>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technologies:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1.  Main Framework: Laravel 10
+2.  Database: MySQL
+3.  CSS Framework: Tailwind CSS
 
-## Learning Laravel
+## Project Requirements:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Aplikasi ini di-develop menggunakan beberapa teknologi berikut:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. PHP v8.1^
+2. Composer
+3. Node.js v20^
+4. NPM v10^
+5. MySQL
+6. Git
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Project Features:
 
-## Laravel Sponsors
+-   Login (Admin & User)
+-   Register (Admin & User)
+-   Logout
+-   Add Book (Admin & User)
+    -   Upload Book Cover (image)
+    -   Upload Book File (pdf)
+-   Edit Book (Admin & User)
+-   Delete Book (Admin & User)
+-   View Book (Admin & User)
+-   Search Book (Admin & User)
+-   Pagination
+-   Upload Book Cover (image)
+-   Upload Book File (pdf)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Project Scope:
 
-### Premium Partners
+-   Admin
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    -   Login
+    -   Add Book
+    -   Edit Book
+    -   Delete Book
+    -   View Book
+    -   Search Book
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# backend-assignment-detikcom
-# backend-assignment-detikcom
+-   User
+    -   Login
+    -   Register
+    -   Add Book
+    -   Edit Book
+    -   Delete Book
+    -   View Book
+    -   Search Book
