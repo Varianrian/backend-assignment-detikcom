@@ -13,7 +13,7 @@
     </div>
     <h1 class="text-2xl font-semibold text-white">Edit Book Category</h1>
 
-    <form action="{{ route("book-categories.store") }}" method="POST" class="flex flex-col gap-4">
+    <form action="{{ route("book-categories.update", $category->id) }}" method="POST" class="flex flex-col gap-4">
       @csrf
 
       <div class="flex flex-col gap-2">
