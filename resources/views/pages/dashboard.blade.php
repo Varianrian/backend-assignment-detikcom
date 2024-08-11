@@ -2,14 +2,30 @@
 
 @section("content")
   <main class="mx-auto flex min-h-screen w-full max-w-[80vw] flex-col gap-4 py-8">
-    {{-- Button Create Book --}}
     <div class="flex flex-col items-start justify-between gap-3 lg:flex-row lg:items-center">
+      {{-- Button Create Book --}}
       <a
         href=""
         class="inline-block rounded border border-indigo-500 px-4 py-2 text-sm leading-none text-indigo-500 hover:border-transparent hover:bg-indigo-500 hover:text-white"
       >
         Create Book
       </a>
+
+      {{-- Category Filter --}}
+
+      <div class="relative">
+        <select
+          class="block rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+          required
+        >
+          <option value="" disabled selected>Filter by Category</option>
+          <option value="novel">Novel</option>
+          <option value="biography">Biography</option>
+          <option value="history">History</option>
+          <option value="science">Science</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
 
       {{-- Search --}}
       <div class="relative">
