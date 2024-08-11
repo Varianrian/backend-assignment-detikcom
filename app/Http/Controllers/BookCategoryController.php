@@ -66,4 +66,13 @@ class BookCategoryController extends Controller
             'message' => 'Book category has been deleted successfully.'
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $categories = BookCategory::where('name', 'like', '%' . $request->name . '%')->get();
+        return view('pages.book-categories.list')->with([
+            'categories' => $categories,
+            'search' => $request->name
+        ]);
+    }
 }

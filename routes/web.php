@@ -34,6 +34,7 @@ Route::group(['prefix' => 'book-categories', 'middleware' => ['auth', 'admin']],
     Route::get('edit/{id}', [BookCategoryController::class, 'edit'])->name('book-categories.edit');
     Route::post('update/{id}', [BookCategoryController::class, 'update'])->name('book-categories.update');
     Route::get('delete/{id}', [BookCategoryController::class, 'delete'])->name('book-categories.delete');
+    Route::get('search', [BookCategoryController::class, 'search'])->name('book-categories.search');
 });
 
 Route::group(['prefix' => 'auth'], function () {

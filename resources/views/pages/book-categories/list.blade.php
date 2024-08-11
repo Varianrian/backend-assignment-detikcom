@@ -13,15 +13,16 @@
 
       {{-- Search --}}
       <div class="relative">
-        <form class="mx-auto flex max-w-sm items-center">
+        <form class="mx-auto flex max-w-sm items-center" action="{{ route("book-categories.search") }}" method="GET">
           <label for="simple-search" class="sr-only">Search</label>
           <div class="relative w-full">
             <input
               type="text"
+              name="name"
               id="simple-search"
               class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
               placeholder="Search category"
-              required
+              value="{{ Request::has("name") ? Request::get("name") : "" }}"
             />
           </div>
           <button
