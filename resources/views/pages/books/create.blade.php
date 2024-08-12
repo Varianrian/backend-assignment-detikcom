@@ -13,7 +13,7 @@
     </div>
     <h1 class="text-2xl font-semibold text-white">Create Book</h1>
 
-    <form action="{{ route("books.store") }}" method="POST" class="flex flex-col gap-4" enctype="multipart/form-data"> 
+    <form action="{{ route("books.store") }}" method="POST" class="flex flex-col gap-4" enctype="multipart/form-data">
       @csrf
 
       <div class="flex flex-col gap-2">
@@ -40,7 +40,9 @@
           class="rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
           placeholder="e.g. A novel by F. Scott Fitzgerald"
           required
-        >{{ old("description") }}</textarea>
+        >
+{{ old("description") }}</textarea
+        >
         @error("description")
           <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror

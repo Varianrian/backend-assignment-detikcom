@@ -28,7 +28,7 @@
           value="{{ old("name") }}"
         />
         @error("name")
-          <span class="text-red-500 text-sm">{{ $message }}</span>
+          <span class="text-sm text-red-500">{{ $message }}</span>
         @enderror
       </div>
 
