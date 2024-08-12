@@ -2,6 +2,12 @@
 
 @section("content")
   <main class="mx-auto flex min-h-screen w-full max-w-[80vw] flex-col gap-4 py-8">
+    <a
+      href="{{ route("books.export") }}"
+      class="inline-block w-fit rounded border border-emerald-500 px-4 py-2 text-sm leading-none text-emerald-500 hover:border-transparent hover:bg-emerald-500 hover:text-white"
+    >
+      Export Data
+    </a>
     <div class="flex flex-col items-start justify-between gap-3 lg:flex-row lg:items-center">
       {{-- Button Create Book --}}
       <a

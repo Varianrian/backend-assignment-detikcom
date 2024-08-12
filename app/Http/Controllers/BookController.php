@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\BookCategory;
 use Database\Factories\BookCategoryFactory;
+use App\Exports\BooksExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookController extends Controller
 {
@@ -154,5 +156,10 @@ class BookController extends Controller
             "books" => $books,
             "categories" => $categories
         ]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new BooksExport, 'books.xlsx');
     }
 }

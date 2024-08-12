@@ -16,8 +16,15 @@
   </div>
   <div class="block hidden w-full flex-grow lg:flex lg:w-auto lg:items-center" id="nav-content">
     <div class="text-sm lg:flex-grow">
-      <a href="" class="mr-4 mt-4 block text-gray-200 hover:text-white lg:mt-0 lg:inline-block">Home</a>
       <a href="" class="mr-4 mt-4 block text-gray-200 hover:text-white lg:mt-0 lg:inline-block">Book</a>
+      @if (auth()->user()->role === "admin")
+        <a
+          href="{{ route("book-categories.index") }}"
+          class="mr-4 mt-4 block text-gray-200 hover:text-white lg:mt-0 lg:inline-block"
+        >
+          Categories
+        </a>
+      @endif
     </div>
 
     @auth
